@@ -12,7 +12,7 @@
 [@s.textfield
     labelKey="tools.redfox.bamboo.serverless.options.label"
     descriptionKey="tools.redfox.bamboo.serverless.options.description"
-    name="command"
+    name="options"
     cssClass="long-field" /]
 
 [@ui.bambooSection titleKey='repository.advanced.option' collapsible=true isCollapsed=!(environmentVariables?has_content || workingSubDirectory?has_content)]

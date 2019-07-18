@@ -21,7 +21,7 @@ import java.util.Map;
 
 public abstract class AbstractServerlessTaskExporter<P extends BaseServerlessTaskProperties, B extends BaseServerlessTask<B, P>> implements TaskDefinitionExporter {
     private final Class<P> propertiesClass;
-    private final UIConfigSupport uiConfigSupport;
+    private UIConfigSupport uiConfigSupport;
 
     protected AbstractServerlessTaskExporter(Class<P> propertiesClass, UIConfigSupport uiConfigSupport) {
         this.propertiesClass = propertiesClass;
@@ -66,21 +66,6 @@ public abstract class AbstractServerlessTaskExporter<P extends BaseServerlessTas
     @NotNull
     public final List<ValidationProblem> validate(@NotNull TaskValidationContext taskValidationContext, @NotNull TaskProperties taskProperties) {
         List<ValidationProblem> validationProblems = new ArrayList<>();
-//        P typedTaskProperties = Narrow.downTo(taskProperties, this.propertiesClass);
-//        if (typedTaskProperties != null) {
-//            String serverlessExecutable = typedTaskProperties.getServerlessExecutable();
-//            if (!StringUtils.isEmpty(serverlessExecutable)) {
-//                List<String> executableLabels = this.uiConfigSupport.getExecutableLabels("serverless");
-//                if (executableLabels.stream().noneMatch((label) -> {
-//                    return label.equals(serverlessExecutable);
-//                })) {
-//                    String errorMessage = String.format("Can't find serverless executable by label: '%s'. Available values: %s", serverlessExecutable, executableLabels);
-//                    validationProblems.add(new ValidationProblem(this.getValidationContext(), errorMessage));
-//                }
-//            }
-//
-//            validationProblems.addAll(this.validate(typedTaskProperties));
-//        }
 
         return validationProblems;
     }

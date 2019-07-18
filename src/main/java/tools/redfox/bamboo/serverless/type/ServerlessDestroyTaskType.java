@@ -26,19 +26,6 @@ public class ServerlessDestroyTaskType extends ServerlessTaskType {
 
     @Override
     public TaskResult execute(CommonTaskContext commonTaskContext) throws TaskException {
-        return execute(commonTaskContext, "destroy");
+        return execute(commonTaskContext, "remove --verbose");
     }
-
-    @NotNull
-    protected Map<String, String> toTaskConfiguration(@NotNull NpmTaskProperties taskProperties) {
-        Map<String, String> config = new HashMap();
-        config.put("options", taskProperties.getCommand());
-        config.put("isolatedCache", Boolean.toString(taskProperties.isUseIsolatedCache()));
-        return config;
-    }
-//
-//    @NotNull
-//    public ServerlessPackageTask toSpecsEntity(@NotNull Map<String, String> taskConfiguration) {
-//        return (new ServerlessPackageTask()).options((String) taskConfiguration.get("options")).useIsolatedCache(Boolean.parseBoolean((String) taskConfiguration.getOrDefault("isolatedCache", (Object) null)));
-//    }
 }

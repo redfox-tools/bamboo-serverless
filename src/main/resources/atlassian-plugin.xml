@@ -29,6 +29,7 @@
         <resource location="images/taskIcon.png" name="icon" type="download"/>
         <resource type="freemarker" name="edit" location="templates/task.ftl"/>
         <resource type="freemarker" name="view" location="templates/task.ftl"/>
+        <exporter class="tools.redfox.bamboo.serverless.exporter.ServerlessDeployTaskExporter" />
         <configuration class="tools.redfox.bamboo.serverless.configurator.ServerlessConfigurator" />
     </taskType>
 
@@ -39,6 +40,7 @@
         <resource location="images/taskIcon.png" name="icon" type="download"/>
         <resource type="freemarker" name="edit" location="templates/task.ftl"/>
         <resource type="freemarker" name="view" location="templates/task.ftl"/>
+        <exporter class="tools.redfox.bamboo.serverless.exporter.ServerlessDestroyTaskExporter" />
         <configuration class="tools.redfox.bamboo.serverless.configurator.ServerlessConfigurator" />
     </taskType>
 </atlassian-plugin>

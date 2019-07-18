@@ -15,7 +15,8 @@ public class ServerlessPackageTaskType extends ServerlessTaskType {
             @ComponentImport ProcessService processService,
             @ComponentImport EnvironmentVariableAccessor environmentVariableAccessor,
             @ComponentImport CapabilityContext capabilityContext,
-            @ComponentImport TextProvider textProvider) {
+            @ComponentImport TextProvider textProvider
+    ) {
         super(processService, environmentVariableAccessor, capabilityContext, textProvider);
     }
 

@@ -11,10 +11,10 @@ import java.util.List;
 import java.util.Objects;
 
 public abstract class BaseServerlessTaskProperties extends TaskProperties {
-    @NotNull
+    @Nullable
     protected String serverlessExecutable;
 
-    @NotNull
+    @Nullable
     protected String options;
 
     @Nullable
@@ -67,12 +67,12 @@ public abstract class BaseServerlessTaskProperties extends TaskProperties {
         return Objects.hash(super.hashCode(), getOptions());
     }
 
-    @NotNull
+    @Nullable
     public String getOptions() {
         return options;
     }
 
-    @NotNull
+    @Nullable
     public String getServerlessExecutable() {
         return serverlessExecutable;
     }

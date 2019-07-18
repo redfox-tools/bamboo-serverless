@@ -46,11 +46,10 @@ abstract class ServerlessTaskType implements CommonTaskType {
                         "node_modules/.bin/"
                 );
             }
-            String cmd = configurationMap.get("options");
+            String cmd = command + " " + configurationMap.get("options");
 
             Map<String, String> extraEnvironmentVariables = this.environmentVariableAccessor.splitEnvironmentAssignments(configurationMap.get("environmentVariables"), false);
             List<String> arguments = CommandlineStringUtils.tokeniseCommandline(cmd);
-            arguments.add(0, command);
             ImmutableList.Builder<String> commandListBuilder = ImmutableList.builder();
             commandListBuilder.add(serverlessPath).addAll(arguments);
 
@@ -69,6 +68,7 @@ abstract class ServerlessTaskType implements CommonTaskType {
             );
             return taskResultBuilder.build();
         } catch (Exception e) {
+            taskContext.getBuildLogger().addErrorLogEntry("Failed to execute task: " + e.getMessage());
             throw new TaskException("Failed to execute task", e);
         }
     }
