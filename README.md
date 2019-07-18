@@ -16,14 +16,14 @@ Bonus:
 ## Screenshots
 
 **Custom tasks**
-![Custom tasks](https://raw.githubusercontent.com/redfox-tools/bamboo-serverless/master/src/main/resources/images/screenshots/img_00.png)
+![Custom tasks](https://raw.githubusercontent.com/redfox-tools/bamboo-serverless/master/src/main/resources/images/serverless/screenshots/img_00.png)
 
 **Configure agent capability**
-![Custom tasks](https://raw.githubusercontent.com/redfox-tools/bamboo-serverless/master/src/main/resources/images/screenshots/img_01.png)
+![Custom tasks](https://raw.githubusercontent.com/redfox-tools/bamboo-serverless/master/src/main/resources/images/serverless/screenshots/img_01.png)
 
 **Support for multiple versions of serverless framework**
-![Custom tasks](https://raw.githubusercontent.com/redfox-tools/bamboo-serverless/master/src/main/resources/images/screenshots/img_02.png)
+![Custom tasks](https://raw.githubusercontent.com/redfox-tools/bamboo-serverless/master/src/main/resources/images/serverless/screenshots/img_02.png)
 
 **Configure task details**
-![Custom tasks](https://raw.githubusercontent.com/redfox-tools/bamboo-serverless/master/src/main/resources/images/screenshots/img_04.png)
+![Custom tasks](https://raw.githubusercontent.com/redfox-tools/bamboo-serverless/master/src/main/resources/images/serverless/screenshots/img_04.png)
 
