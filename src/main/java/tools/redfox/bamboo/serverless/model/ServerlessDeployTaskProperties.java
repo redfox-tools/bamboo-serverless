@@ -15,7 +15,7 @@ import java.util.List;
 @Builder(ServerlessDeployTask.class)
 public final class ServerlessDeployTaskProperties extends BaseServerlessTaskProperties {
     private static final AtlassianModuleProperties ATLASSIAN_PLUGIN =
-            new AtlassianModuleProperties("tools.redfox.bamboo.serverless:serverlessDeploy");
+            new AtlassianModuleProperties("tools.redfox.bamboo.serverless:tools.redfox.serverless.deploy");
 
     protected ServerlessDeployTaskProperties() {
         super();

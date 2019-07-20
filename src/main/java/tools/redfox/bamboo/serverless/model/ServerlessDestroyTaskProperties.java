@@ -15,7 +15,7 @@ import java.util.List;
 @Builder(ServerlessDestroyTask.class)
 public final class ServerlessDestroyTaskProperties extends BaseServerlessTaskProperties {
     private static final AtlassianModuleProperties ATLASSIAN_PLUGIN =
-            new AtlassianModuleProperties("tools.redfox.bamboo.serverless:serverlessDestroy");
+            new AtlassianModuleProperties("tools.redfox.bamboo.serverless:tools.redfox.serverless.destroy");
 
     protected ServerlessDestroyTaskProperties() {
         super();

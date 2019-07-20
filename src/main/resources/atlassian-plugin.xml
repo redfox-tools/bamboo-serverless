@@ -11,7 +11,7 @@
     <resource type="i18n" name="i18n" location="bamboo-serverless"/>
     
     <!-- add our web resources -->
-    <taskType key="serverlessPackage" name="Serverless Package" class="tools.redfox.bamboo.serverless.type.ServerlessPackageTaskType">
+    <taskType key="tools.redfox.serverless.package" name="Serverless Package" class="tools.redfox.bamboo.serverless.type.ServerlessPackageTaskType">
         <description>Create page artifact for Serverless project</description>
         <resource location="images/taskIcon.png" name="icon" type="download"/>
         <category name="builder" />
@@ -22,7 +22,7 @@
         <configuration class="tools.redfox.bamboo.serverless.configurator.ServerlessConfigurator" />
     </taskType>
 
-    <taskType key="serverlessDeploy" name="Serverless Deploy" class="tools.redfox.bamboo.serverless.type.ServerlessDeployTaskType">
+    <taskType key="tools.redfox.serverless.deploy" name="Serverless Deploy" class="tools.redfox.bamboo.serverless.type.ServerlessDeployTaskType">
         <description>Deploy Serverless project</description>
         <category name="builder" />
         <executable key="serverless" nameKey="tools.redfox.bamboo.serverless.runtime.executableName" pathHelpKey="tools.redfox.bamboo.serverless.runtime.executablePathHelp" primaryCapabilityProvider="false"/>
@@ -33,7 +33,7 @@
         <configuration class="tools.redfox.bamboo.serverless.configurator.ServerlessConfigurator" />
     </taskType>
 
-    <taskType key="serverlessDestroy" name="Serverless Destroy" class="tools.redfox.bamboo.serverless.type.ServerlessDestroyTaskType">
+    <taskType key="tools.redfox.serverless.destroy" name="Serverless Destroy" class="tools.redfox.bamboo.serverless.type.ServerlessDestroyTaskType">
         <description>Destroy Serverless project</description>
         <category name="builder" />
         <executable key="serverless" nameKey="tools.redfox.bamboo.serverless.runtime.executableName" pathHelpKey="tools.redfox.bamboo.serverless.runtime.executablePathHelp" primaryCapabilityProvider="false"/>
