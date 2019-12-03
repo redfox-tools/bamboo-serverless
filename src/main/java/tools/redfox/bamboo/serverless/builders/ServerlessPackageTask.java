@@ -1,19 +1,21 @@
 package tools.redfox.bamboo.serverless.builders;
 
 import org.jetbrains.annotations.NotNull;
-import tools.redfox.bamboo.serverless.model.ServerlessPackageTaskProperties;
+import com.atlassian.bamboo.specs.model.serverless.ServerlessPackageTaskProperties;
+import tools.redfox.bamboo.base.builder.BaseTask;
 
-public class ServerlessPackageTask extends BaseServerlessTask<ServerlessPackageTask, ServerlessPackageTaskProperties> {
+public class ServerlessPackageTask extends BaseTask<ServerlessPackageTask, ServerlessPackageTaskProperties> {
     @NotNull
     @Override
     protected ServerlessPackageTaskProperties build() {
         return new ServerlessPackageTaskProperties(
                 description,
                 taskEnabled,
-                serverlessExecutable,
-                environmentVariables,
-                workingSubdirectory,
+                runtime,
                 options,
+                output,
+                workingSubDirectory,
+                environmentVariables,
                 requirements,
                 conditions
         );

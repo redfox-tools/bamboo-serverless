@@ -13,7 +13,7 @@
     <!-- add our web resources -->
     <taskType key="tools.redfox.serverless.package" name="Serverless Package" class="tools.redfox.bamboo.serverless.type.ServerlessPackageTaskType">
         <description>Create page artifact for Serverless project</description>
-        <resource location="images/taskIcon.png" name="icon" type="download"/>
+        <resource location="images/serverless/taskIcon.png" name="icon" type="download"/>
         <category name="builder" />
         <executable key="serverless" nameKey="tools.redfox.bamboo.serverless.runtime.executableName" pathHelpKey="tools.redfox.bamboo.serverless.runtime.executablePathHelp"/>
         <resource type="freemarker" name="edit" location="templates/tools/redfox/serverless/task.ftl"/>
@@ -26,7 +26,7 @@
         <description>Deploy Serverless project</description>
         <category name="builder" />
         <executable key="serverless" nameKey="tools.redfox.bamboo.serverless.runtime.executableName" pathHelpKey="tools.redfox.bamboo.serverless.runtime.executablePathHelp" primaryCapabilityProvider="false"/>
-        <resource location="images/taskIcon.png" name="icon" type="download"/>
+        <resource location="images/serverless/taskIcon.png" name="icon" type="download"/>
         <resource type="freemarker" name="edit" location="templates/tools/redfox/serverless/task.ftl"/>
         <resource type="freemarker" name="view" location="templates/tools/redfox/serverless/task.ftl"/>
         <exporter class="tools.redfox.bamboo.serverless.exporter.ServerlessDeployTaskExporter" />
@@ -37,7 +37,7 @@
         <description>Destroy Serverless project</description>
         <category name="builder" />
         <executable key="serverless" nameKey="tools.redfox.bamboo.serverless.runtime.executableName" pathHelpKey="tools.redfox.bamboo.serverless.runtime.executablePathHelp" primaryCapabilityProvider="false"/>
-        <resource location="images/taskIcon.png" name="icon" type="download"/>
+        <resource location="images/serverless/taskIcon.png" name="icon" type="download"/>
         <resource type="freemarker" name="edit" location="templates/tools/redfox/serverless/task.ftl"/>
         <resource type="freemarker" name="view" location="templates/tools/redfox/serverless/task.ftl"/>
         <exporter class="tools.redfox.bamboo.serverless.exporter.ServerlessDestroyTaskExporter" />
