@@ -2,13 +2,14 @@ package tools.redfox.bamboo.serverless.type;
 
 import com.atlassian.bamboo.process.EnvironmentVariableAccessor;
 import com.atlassian.bamboo.process.ProcessService;
+import com.atlassian.bamboo.task.TaskType;
 import com.atlassian.bamboo.v2.build.agent.capability.CapabilityContext;
 import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import tools.redfox.bamboo.base.type.BaseTaskType;
 
-public class ServerlessPackageTaskType extends BaseTaskType {
+public class ServerlessPackageTaskType extends BaseTaskType implements TaskType {
     private static final Logger logger = LoggerFactory.getLogger(ServerlessDeployTaskType.class);
 
     public static final String NAME = "serverless";

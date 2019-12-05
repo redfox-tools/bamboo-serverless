@@ -2,17 +2,47 @@ package tools.redfox.bamboo.serverless.type;
 
 import com.atlassian.bamboo.process.EnvironmentVariableAccessor;
 import com.atlassian.bamboo.process.ProcessService;
+import com.atlassian.bamboo.task.TaskContext;
+import com.atlassian.bamboo.task.TaskException;
+import com.atlassian.bamboo.task.TaskResult;
+import com.atlassian.bamboo.task.TaskType;
 import com.atlassian.bamboo.v2.build.agent.capability.CapabilityContext;
 import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
+import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import tools.redfox.bamboo.base.tools.output.handler.OutputProcessor;
+import tools.redfox.bamboo.base.tools.output.handler.ProcessorOutput;
 import tools.redfox.bamboo.base.type.BaseTaskType;
 
-public class ServerlessDeployTaskType extends BaseTaskType {
+import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class ServerlessDeployTaskType extends BaseTaskType implements TaskType {
     private static final Logger logger = LoggerFactory.getLogger(ServerlessDeployTaskType.class);
 
     public static final String NAME = "serverless";
     public static final String TASK_ID = "tools.redfox.bamboo.serverless:tools.redfox.serverless.deploy.task";
+
+    class ServerlessUrlExtractor implements OutputProcessor {
+        private TaskContext taskContext;
+
+        public ServerlessUrlExtractor(TaskContext taskContext) {
+            this.taskContext = taskContext;
+        }
+
+        @Override
+        public ProcessorOutput handle(String output) {
+            Pattern url = Pattern.compile("ServiceEndpoint:\\s*(https://.*?amazonaws\\.com/\\w+)", Pattern.CASE_INSENSITIVE);
+            Matcher matcher = url.matcher(output);
+
+            if (matcher.find()) {
+                taskContext.getCommonContext().getVariableContext().addResultVariable("serverless.api.url", matcher.group(0));
+            }
+            return null;
+        }
+    }
 
     public ServerlessDeployTaskType(
             @ComponentImport ProcessService processService,
@@ -30,32 +60,10 @@ public class ServerlessDeployTaskType extends BaseTaskType {
     protected String getBaseCommand() {
         return "deploy --verbose";
     }
-/*
+
     @Override
-    public TaskResult execute(CommonTaskContext commonTaskContext) throws TaskException {
-        TaskResult result = execute(commonTaskContext, "deploy --verbose");
-
-        if (result.getTaskState() != TaskState.SUCCESS) {
-            return result;
-        }
-
-        Pattern url = Pattern.compile("https://.*?amazonaws.com/\\w+", Pattern.CASE_INSENSITIVE);
-        String endpoint = commonTaskContext
-                .getBuildLogger()
-                .getLastNLogEntries(100)
-                .stream()
-                .filter(l -> url.matcher(l.getLog()).find())
-                .map(l -> {
-                    Matcher matcher = url.matcher(l.getLog());
-                    matcher.find();
-                    return matcher.group(0);
-                })
-                .findFirst().orElse(null);
-
-        if (endpoint != null) {
-            commonTaskContext.getCommonContext().getVariableContext().addResultVariable("serverless.api.url", endpoint);
-        }
-
-        return result;
-    }*/
+    public TaskResult execute(@NotNull TaskContext taskContext) throws TaskException {
+        processors.add(new ServerlessUrlExtractor(taskContext));
+        return super.execute(taskContext);
+    }
 }

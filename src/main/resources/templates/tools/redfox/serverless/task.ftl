@@ -1,17 +1,16 @@
-[#-- @ftlvariable name="uiConfigBean" type="com.atlassian.bamboo.ww2.actions.build.admin.create.UIConfigSupport" --]
+[#assign addExecutableLink][@ui.displayAddExecutableInline executableKey='${executable}' /][/#assign]
 
-[#assign addExecutableLink][@ui.displayAddExecutableInline executableKey='serverless' /][/#assign]
 [@s.select
     cssClass="builderSelectWidget"
-    labelKey="tools.redfox.bamboo.serverless.runtime.label"
-    descriptionKey="tools.redfox.bamboo.serverless.runtime.description"
+    labelKey="tools.redfox.bamboo.${executable}.runtime.label"
+    descriptionKey="tools.redfox.bamboo.${executable}.runtime.description"
     name="runtime"
-    list=serverlessLabels
+    list=executableLabels
     extraUtility=addExecutableLink /]
 
 [@s.textfield
-    labelKey="tools.redfox.bamboo.serverless.options.label"
-    descriptionKey="tools.redfox.bamboo.serverless.options.description"
+    labelKey="tools.redfox.bamboo.${executable}.options.label"
+    descriptionKey="tools.redfox.bamboo.${executable}.options.description"
     name="options"
     cssClass="long-field" /]
 

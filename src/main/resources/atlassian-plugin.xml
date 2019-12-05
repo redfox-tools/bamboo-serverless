@@ -11,7 +11,7 @@
     <resource type="i18n" name="i18n" location="bamboo-serverless"/>
     
     <!-- add our web resources -->
-    <taskType key="tools.redfox.serverless.package" name="Serverless Package" class="tools.redfox.bamboo.serverless.type.ServerlessPackageTaskType">
+    <taskType key="tools.redfox.serverless.package.type" name="Serverless Package" class="tools.redfox.bamboo.serverless.type.ServerlessPackageTaskType">
         <description>Create page artifact for Serverless project</description>
         <resource location="images/serverless/taskIcon.png" name="icon" type="download"/>
         <category name="builder" />
@@ -19,21 +19,21 @@
         <resource type="freemarker" name="edit" location="templates/tools/redfox/serverless/task.ftl"/>
         <resource type="freemarker" name="view" location="templates/tools/redfox/serverless/task.ftl"/>
         <exporter class="tools.redfox.bamboo.serverless.exporter.ServerlessPackageTaskExporter" />
-        <configuration class="tools.redfox.bamboo.serverless.configurator.ServerlessConfigurator" />
+        <configuration class="tools.redfox.bamboo.serverless.configurator.ServerlessPackageConfigurator" />
     </taskType>
 
-    <taskType key="tools.redfox.serverless.deploy" name="Serverless Deploy" class="tools.redfox.bamboo.serverless.type.ServerlessDeployTaskType">
+    <taskType key="tools.redfox.serverless.deploy.type" name="Serverless Deploy" class="tools.redfox.bamboo.serverless.type.ServerlessDeployTaskType">
         <description>Deploy Serverless project</description>
         <category name="builder" />
-        <executable key="serverless" nameKey="tools.redfox.bamboo.serverless.runtime.executableName" pathHelpKey="tools.redfox.bamboo.serverless.runtime.executablePathHelp" primaryCapabilityProvider="false"/>
+        <executable key="serverless" nameKey="tools.redfox.bamboo.serverless.runtime.executableName" pathHelpKey="tools.redfox.bamboo.serverless.runtime.executablePathHelp" />
         <resource location="images/serverless/taskIcon.png" name="icon" type="download"/>
         <resource type="freemarker" name="edit" location="templates/tools/redfox/serverless/task.ftl"/>
         <resource type="freemarker" name="view" location="templates/tools/redfox/serverless/task.ftl"/>
         <exporter class="tools.redfox.bamboo.serverless.exporter.ServerlessDeployTaskExporter" />
-        <configuration class="tools.redfox.bamboo.serverless.configurator.ServerlessConfigurator" />
+        <configuration class="tools.redfox.bamboo.serverless.configurator.ServerlessDeployConfigurator" />
     </taskType>
 
-    <taskType key="tools.redfox.serverless.destroy" name="Serverless Destroy" class="tools.redfox.bamboo.serverless.type.ServerlessDestroyTaskType">
+    <taskType key="tools.redfox.serverless.destroy.type" name="Serverless Destroy" class="tools.redfox.bamboo.serverless.type.ServerlessDestroyTaskType">
         <description>Destroy Serverless project</description>
         <category name="builder" />
         <executable key="serverless" nameKey="tools.redfox.bamboo.serverless.runtime.executableName" pathHelpKey="tools.redfox.bamboo.serverless.runtime.executablePathHelp" primaryCapabilityProvider="false"/>
@@ -41,6 +41,6 @@
         <resource type="freemarker" name="edit" location="templates/tools/redfox/serverless/task.ftl"/>
         <resource type="freemarker" name="view" location="templates/tools/redfox/serverless/task.ftl"/>
         <exporter class="tools.redfox.bamboo.serverless.exporter.ServerlessDestroyTaskExporter" />
-        <configuration class="tools.redfox.bamboo.serverless.configurator.ServerlessConfigurator" />
+        <configuration class="tools.redfox.bamboo.serverless.configurator.ServerlessDestroyConfigurator" />
     </taskType>
 </atlassian-plugin>
